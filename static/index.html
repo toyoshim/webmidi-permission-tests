@@ -11,18 +11,23 @@ function log(message) {
   document.getElementById("log").appendChild(log);
 }
 
-function do_test(options) {
+function do_tests(options_list) {
+  var options = options_list.shift();
+  if (!options)
+    return;
+  console.log(options_list);
   log("TEST: navigator.requiestMIDIAccess(" + JSON.stringify(options) + ")\n");
   navigator.requestMIDIAccess(options).then(function(a) {
     log("  => PASS\n");
-    do_test({sysex: true});
+    do_tests(options_list);
   }, function(e) {
     log("  => FAIL: " + e + "\n");
+    do_tests(options_list);
   });
 }
 
 log("Running Web MIDI permission tests\n");
-do_test({});
+do_tests([{}, {sysex: true}]);
 </script>
 </body>
 </html>
