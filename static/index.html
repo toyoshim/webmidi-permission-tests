@@ -1,2 +1,28 @@
 <html>
+<head><title>Web MIDI permission tests</title></head>
+<body>
+<p>Web MIDI permission tests</p>
+<pre id="log">
+</div>
+<script>
+function log(message) {
+  console.log(message);
+  var log = document.createTextNode(message);
+  document.getElementById("log").appendChild(log);
+}
+
+function do_test(options) {
+  log("TEST: navigator.requiestMIDIAccess(" + JSON.stringify(options) + ")\n");
+  navigator.requestMIDIAccess(options).then(function(a) {
+    log("  => PASS\n");
+    do_test({sysex: true});
+  }, function(e) {
+    log("  => FAIL: " + e + "\n");
+  });
+}
+
+log("Running Web MIDI permission tests\n");
+do_test({});
+</script>
+</body>
 </html>
