@@ -13,7 +13,8 @@ func main() {
 	defer log.Close()
 
 	fmt.Println("listening on " + os.Getenv("PORT") + " ...")
-	err := http.ListenAndServe(":"+os.Getenv("PORT"), http.FileServer(http.Dir("static")), log.Logger())
+	http.Handle("/", http.FileServer(http.Dir("static")))
+	err := http.ListenAndServe(":"+os.Getenv("PORT"), log.Logger())
 	if err != nil {
 		panic(err)
 	}
