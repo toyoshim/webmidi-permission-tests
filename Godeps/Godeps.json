@@ -1,4 +1,18 @@
 {
-  "GoVersion": "go1.2.1",
-  "Deps": []
+	"ImportPath": "webmidi-permission-tests",
+	"GoVersion": "go1.5",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/toyoshim/gomolog",
+			"Rev": "3de8ab15dcc5b404eb6641ee5ae93feba40878ef"
+		},
+		{
+			"ImportPath": "gopkg.in/mgo.v2",
+			"Comment": "r2015.12.06-2-g03c9f3e",
+			"Rev": "03c9f3ee4c14c8e51ee521a6a7d0425658dd6f64"
+		}
+	]
 }
