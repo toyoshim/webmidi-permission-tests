@@ -14,8 +14,8 @@ import (
 	"strings"
 	"sync"
 
-	"webmidi-permission-tests/Godeps/_workspace/src/gopkg.in/mgo.v2"
-	"webmidi-permission-tests/Godeps/_workspace/src/gopkg.in/mgo.v2/bson"
+	"gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2/bson"
 
 	crand "crypto/rand"
 	mrand "math/rand"

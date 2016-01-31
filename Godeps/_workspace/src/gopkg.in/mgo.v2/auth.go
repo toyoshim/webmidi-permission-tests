@@ -34,8 +34,8 @@ import (
 	"fmt"
 	"sync"
 
-	"webmidi-permission-tests/Godeps/_workspace/src/gopkg.in/mgo.v2/bson"
-	"webmidi-permission-tests/Godeps/_workspace/src/gopkg.in/mgo.v2/internal/scram"
+	"gopkg.in/mgo.v2/bson"
+	"gopkg.in/mgo.v2/internal/scram"
 )
 
 type authCmd struct {

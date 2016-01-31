@@ -7,7 +7,7 @@
 	"Deps": [
 		{
 			"ImportPath": "github.com/toyoshim/gomolog",
-			"Rev": "3de8ab15dcc5b404eb6641ee5ae93feba40878ef"
+			"Rev": "77b136fb1f60323f46029c4eb2aba10db81a3f93"
 		},
 		{
 			"ImportPath": "gopkg.in/mgo.v2",

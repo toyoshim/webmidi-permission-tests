@@ -36,7 +36,7 @@ import (
 	"sync"
 	"time"
 
-	"webmidi-permission-tests/Godeps/_workspace/src/gopkg.in/mgo.v2/bson"
+	"gopkg.in/mgo.v2/bson"
 )
 
 type GridFS struct {

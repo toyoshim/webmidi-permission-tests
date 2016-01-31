@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"webmidi-permission-tests/Godeps/_workspace/src/gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2"
 )
 
 type wrappedWriter struct {
@@ -84,6 +84,12 @@ func (log *Gomolog) Logger() http.Handler {
 		start := time.Now()
 		http.DefaultServeMux.ServeHTTP(&writer, r)
 		duration := time.Now().Sub(start)
+		forwarded := strings.Split(
+			strings.Join(r.Header["X-Forwarded-For"], ","), ",")
+		raddr := r.RemoteAddr
+		if len(forwarded) != 0 {
+			raddr = forwarded[len(forwarded) - 1]
+		}
 		log.collection.Insert(&logFormat{
 			Format:   1,
 			Date:     time.Now().Format(time.RFC3339),
@@ -99,7 +105,7 @@ func (log *Gomolog) Logger() http.Handler {
 				ContentLength: writer.length,
 				ResponseTime:  duration.Seconds() * 1000},
 			Remote: remote{
-				Addr:      r.RemoteAddr,
+				Addr:      raddr,
 				User:      "-",
 				UserAgent: r.UserAgent()}})
 	})

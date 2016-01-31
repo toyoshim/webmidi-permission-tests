@@ -1,8 +1,8 @@
 package txn
 
 import (
+	"gopkg.in/mgo.v2/bson"
 	"sort"
-	"webmidi-permission-tests/Godeps/_workspace/src/gopkg.in/mgo.v2/bson"
 )
 
 func tarjanSort(successors map[bson.ObjectId][]bson.ObjectId) [][]bson.ObjectId {
